@@ -1,0 +1,31 @@
+{
+    "manifest_version":2,
+    
+    "name":"Helper",
+    "description":"Adds Pluralsight functionality",
+    "version": "1.0",
+    
+    "page_action": {
+        "default_icon":"icon.png",
+        "default_title":"Helper",
+        "default_popup":"popup.html"
+    },
+    
+    "background":{
+        "scripts":["eventPage.js"],
+        "persistent":false
+    },
+    
+    "content_scripts":[
+        {
+            "matches":["https://*.pluralsight.com/*", "https://*.reddit.com/*"],
+            "js":["pluralsight_cs.js","jquery-3.3.1.js"],
+            "css":["pluralsight_cs.css"]
+        }
+    ],
+    
+    "permissions":[
+        "tabs",
+        "http://pluraisight.com/*"
+    ]
+}
